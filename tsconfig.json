@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "target": "es2016",
     "module": "commonjs",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-
     "paths": {
-      "@/*": ["/*"],
-      "@routes/*": ["/src/routes/*"]
-    }
-  }
+      "@/*": ["./*"],
+      "@routes/*": ["./src/routes/*"]
+    },
+  },
+  "include": ["*.d.ts", "**/*", "src/**/*"],
+  "exclude": ["node_modules"]
 }
 
 /* Visit https://aka.ms/tsconfig to read more about this file */
