@@ -3,7 +3,7 @@ import express, { Router, Request, Response } from "express"
 import serverless from "serverless-http"
 import dotenv from 'dotenv'
 // import todoRouter from '@routes/todoRouter'
-import todoRouter from '../../routes/todoRouter'
+import todoRouter from '../../src/routes/todoRouter'
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
