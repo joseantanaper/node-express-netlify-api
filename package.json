@@ -4,9 +4,10 @@
   "description": "",
   "main": "netlify/functions/api.ts",
   "scripts": {
-    "build": "echo \"Building functions...\" && npx tsc",
+    "build": "echo \"Building functions...\" && npm run clean && npx tsc",
     "start": "ts-node src/netlify/functions/api.ts",
     "dev": "nodemon src/netlify/functions/api.ts",
+    "clean": "npx rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JoseA",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
+    "rimraf": "^5.0.5",
     "tsconfig-paths": "^4.2.0"
   }
 }

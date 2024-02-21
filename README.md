@@ -34,8 +34,14 @@ package.json
   },
 ```
 
+Install Nodemon:
 ```sh
 npm install -g nodemon
+```
+
+Install rimraf (for removing dist):
+```sh
+npm install --save-dev rimraf
 ```
 
 netlify/functions/api.ts
