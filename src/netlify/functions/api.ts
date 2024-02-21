@@ -2,27 +2,29 @@
 import express, { Router, Request, Response } from "express"
 import serverless from "serverless-http"
 import dotenv from 'dotenv'
-import todoRouter from '@routes/todoRouter'
+// import todoRouter from '@routes/todoRouter'
+import todoRouter from '../../routes/todoRouter'
 dotenv.config()
 
-const port = process.env.PORT
+const PORT = process.env.PORT || 3000
+const BASE_URL = process.env.BASE_URL || '/api/'
 const api = express()
 
 const router = Router();
-router.get("/", (req, res) => res.send("API"))
+router.get("/", (req, res) => res.send("Api"))
 router.get("/hello", (req, res) => res.send("Hello World!"))
 
 router.get('/res', (req: Request, res: Response) => {
   res.send({id: 111})
 })
 
-api.use("/api/", router)
+api.use(BASE_URL, router)
 
-api.use('api/todo', todoRouter)
+api.use(BASE_URL + 'todo', todoRouter)
 
 if (process.env.MODE === 'development') {
-  api.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`)
+  api.listen(PORT, () => {
+    console.log(`[server]: Server is running at http://localhost:${PORT}`)
   })
 } else {
   console.log(`[server]: Production mode`);
