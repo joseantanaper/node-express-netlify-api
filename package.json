@@ -6,7 +6,7 @@
   "scripts": {
     "build": "echo \"Building functions...\" && npm run clean && npx tsc",
     "start": "ts-node src/netlify/functions/api.ts",
-    "dev": "nodemon src/netlify/functions/api.ts",
+    "dev": "nodemon netlify/functions/api.ts",
     "clean": "npx rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
