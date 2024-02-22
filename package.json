@@ -4,7 +4,7 @@
   "description": "",
   "main": "netlify/functions/api.ts",
   "scripts": {
-    "build": "echo \"Building functions...\" && npm run clean && npx tsc",
+    "build": "echo \"Building functions...\" && npx tsc",
     "start": "ts-node src/netlify/functions/api.ts",
     "dev": "nodemon -r tsconfig-paths/register netlify/functions/api.ts",
     "clean": "npx rimraf dist",
