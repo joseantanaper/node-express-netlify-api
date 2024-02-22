@@ -34,7 +34,7 @@ app.use(FULL_TODO_URL, todoRouter)
 // </html>
 // `)
 // )
-router.get('/', (req: Request, res: Response) => res.json({ root: 1 }))
+router.get('', (req: Request, res: Response) => res.json({ root: 999 }))
 router.get(BASE_URL + '/ping', (req: Request, res: Response) =>
   res.json({
     pong: new Date().toISOString(),
