@@ -3,6 +3,7 @@
 ## Initial setup
 
 Install Express, serverless-http, Netlify functions, CORS and Types for TypeScript
+
 ```sh
 npm init
 npm install express serverless-http @netlify/functions @types/express
@@ -10,22 +11,27 @@ npm install cors @types/cors
 ```
 
 Install DotEnv for .env
+
 ```sh
 npm install --save-dev dotenv
 ```
 
 Install TypeScript
+
 ```sh
-npm install --save-dev typescript @types/node
+# npm install typescript@latest
+npm install --save-dev typescript@latest @types/node
 ```
 
 Generate tsconfig.json
+
 ```sh
 npm install tsconfig-paths
 npx tsc --init
 ```
 
 package.json
+
 ```json
   "scripts": {
     "build": "echo \"Building functions...\" && npm run clean && npx tsc",
@@ -35,23 +41,26 @@ package.json
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 ```
-  tsconfig-path enable alias in dev mode
+
+tsconfig-path enable alias in dev mode
 
 Install Nodemon:
+
 ```sh
 npm install -g nodemon
 ```
 
 Install rimraf (for removing dist):
+
 ```sh
 npm install --save-dev rimraf
 ```
 
 Install uuid4:
+
 ```sh
 npm install uuid4
 npm install --save @types/uuid
 ```
 
 netlify/functions/api.ts
-
