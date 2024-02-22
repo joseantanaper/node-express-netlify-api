@@ -2,7 +2,7 @@
 import express, { Router, Request, Response } from 'express'
 import serverless from 'serverless-http'
 import dotenv from 'dotenv'
-import todoRouter from '@/app/routes/todoRouter'
+import todoRouter from '@routes/todoRouter'
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
@@ -35,18 +35,16 @@ node-express-netlify-api
 `)
 )
 router.get(BASE_URL + '/ping', (req: Request, res: Response) =>
-  res.send('pong')
+  res.json({
+    pong: new Date().toISOString(),
+  })
 )
 router.get(BASE_URL + '/', (req: Request, res: Response) => {
   let routes: Array<string> = []
   let todoRoutes: Array<string> = []
-  routes = router.stack.map(
-    (r) => r.route && r.route.path && BASE_URL + r.route.path
-  )
-  todoRoutes = todoRouter.stack.map(
-    (r) => r.route && r.route.path && TODO_URL + r.route.path
-  )
-  return res.send(routes.concat(todoRoutes))
+  routes = router.stack.map((r) => r.route && r.route.path && r.route.path)
+  todoRoutes = todoRouter.stack.map((r) => r.route && r.route)
+  return res.json(routes.concat(todoRoutes))
 })
 
 app.use('/', router)
