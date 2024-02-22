@@ -1,13 +1,14 @@
 // YOUR_BASE_DIRECTORY/netlify/functions/api.ts
-import express, { Router, Request, Response } from "express"
-import serverless from "serverless-http"
+import express, { Router, Request, Response } from 'express'
+import serverless from 'serverless-http'
 import dotenv from 'dotenv'
-import todoRouter from '@routes/todoRouter'
+import todoRouter from '@/app/routes/todoRouter'
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
 const BASE_URL = process.env.BASE_URL || '/api'
-const TODO_URL = process.env.BASE_URL + '/todo'
+const TODO_URL = process.env.TODO_URL || '/todos'
+const FULL_TODO_URL = BASE_URL + TODO_URL
 const app = express()
 
 app.use(express.json())
@@ -16,9 +17,10 @@ app.use(express.json())
 const router = Router()
 
 // TODO Router
-app.use(BASE_URL + '/todo', todoRouter)
+app.use(FULL_TODO_URL, todoRouter)
 
-router.get("/", (req: Request, res: Response) => res.send(`
+router.get('/', (req: Request, res: Response) =>
+  res.send(`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,19 +32,24 @@ router.get("/", (req: Request, res: Response) => res.send(`
 node-express-netlify-api
 </body>
 </html>
-`))
-router.get(BASE_URL + "/ping", (req: Request, res: Response) => res.send("pong"))
-router.get(BASE_URL + "/", (req: Request, res: Response) => {
+`)
+)
+router.get(BASE_URL + '/ping', (req: Request, res: Response) =>
+  res.send('pong')
+)
+router.get(BASE_URL + '/', (req: Request, res: Response) => {
   let routes: Array<string> = []
   let todoRoutes: Array<string> = []
-  routes = router.stack.map((r) => r.route && r.route.path &&  BASE_URL + r.route.path)
-  todoRoutes = todoRouter.stack.map((r) => r.route && r.route.path && TODO_URL + r.route.path)
+  routes = router.stack.map(
+    (r) => r.route && r.route.path && BASE_URL + r.route.path
+  )
+  todoRoutes = todoRouter.stack.map(
+    (r) => r.route && r.route.path && TODO_URL + r.route.path
+  )
   return res.send(routes.concat(todoRoutes))
 })
 
-app.use("/", router)
-
-
+app.use('/', router)
 
 // Server
 if (process.env.MODE === 'development') {
@@ -50,7 +57,7 @@ if (process.env.MODE === 'development') {
     console.log(`[server]: Server is running at http://localhost:${PORT}`)
   })
 } else {
-  console.log(`[server]: Production mode`);
+  console.log(`[server]: Production mode`)
 }
 
-export const handler = serverless(app);
+export const handler = serverless(app)

@@ -11,13 +11,13 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./*"],
-      "@entities/*": ["src/entities/*"],
-      "@routes/*": ["./src/routes/*"],
-      "@data/*": ["./src/data/*"],
-      "@services/*": ["./src/services/*"],
-    },
+      "@entities/*": ["./app/entities/*"],
+      "@routes/*": ["./app/routes/*"],
+      "@data/*": ["./app/data/*"],
+      "@services/*": ["./app/services/*"]
+    }
   },
-  "include": ["*.d.ts", "**/*", "src/**/*"],
+  "include": ["*.d.ts", "**/*", "app/**/*"],
   "exclude": ["node_modules"]
 }
 
@@ -126,4 +126,3 @@
 /* Completeness */
 // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
 // "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-
