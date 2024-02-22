@@ -21,18 +21,21 @@ npm install --save-dev typescript @types/node
 
 Generate tsconfig.json
 ```sh
+npm install tsconfig-paths
 npx tsc --init
 ```
 
 package.json
 ```json
   "scripts": {
-    "build": "echo \"Building functions...\" && npx tsc",
-    "start": "ts-node netlify/functions/api.ts",
-    "dev": "nodemon netlify/functions/api.ts",
+    "build": "echo \"Building functions...\" && npm run clean && npx tsc",
+    "start": "ts-node src/netlify/functions/api.ts",
+    "dev": "nodemon -r tsconfig-paths/register netlify/functions/api.ts",
+    "clean": "npx rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 ```
+  tsconfig-path enable alias in dev mode
 
 Install Nodemon:
 ```sh
