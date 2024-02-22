@@ -47,5 +47,11 @@ Install rimraf (for removing dist):
 npm install --save-dev rimraf
 ```
 
+Install uuid4:
+```sh
+npm install uuid4
+npm install --save @types/uuid
+```
+
 netlify/functions/api.ts
 

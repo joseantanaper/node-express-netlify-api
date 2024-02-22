@@ -11,8 +11,10 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./*"],
-      "@entity/*": ["src/entities/*"],
-      "@routes/*": ["./src/routes/*"]
+      "@entities/*": ["src/entities/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@data/*": ["./src/data/*"],
+      "@services/*": ["./src/services/*"],
     },
   },
   "include": ["*.d.ts", "**/*", "src/**/*"],

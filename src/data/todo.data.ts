@@ -1,13 +1,12 @@
-import { Todo } from "@/src/entities/Todo"
+import { Todo, toTodo } from "@entities/Todo"
 
 const data: Todo[] = [
-  { id: "1", name: 'Todo 1' },
-  { id: "2", name: 'Todo 2' }
+  { id: "111", name: 'Todo 111', creationDate: new Date(), modificationDate: new Date() },
+  { id: "222", name: 'Todo 222', creationDate: new Date(), modificationDate: new Date() }
 ]
 
 const todoEntries: Todo[] = data.map(obj => {
-  const object = obj as Todo
-  return object
+  return toTodo(obj)
 })
 
 export default todoEntries

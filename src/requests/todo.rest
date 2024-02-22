@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000
+@todoUrl = {{baseUrl}}/api/todo
+
+###
+
+GET   {{todoUrl}}  HTTP/1.1
+
+###
+
+POST  {{todoUrl}}  HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Ahaha"
+}
+
+###
+
+PUT   {{todoUrl}}   HTTP/1.1
+content-type: application/json
+
+{
+  "id": "111",
+  "name": "Update Todo 111"
+}
+
+###
+
+DELETE  {{todoUrl}} HTTP/1.1
+content-type: application/json
+
+{
+  "id": "111"
+}
+
