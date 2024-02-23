@@ -17,6 +17,7 @@ router.get('/', (req: Request, res: Response) => {
 })
 
 router.post('/', (req: Request, res: Response) => {
+  res.set('Access-Control-Allow-Origin', '*')
   console.log(whereami, 'post', '/', req.body)
   res.json(todoService.addEntry(req.body))
 })
