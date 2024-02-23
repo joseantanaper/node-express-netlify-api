@@ -4,6 +4,7 @@ const router = express.Router()
 const whereami = 'todoRouter'
 
 router.get('/ping', (req: Request, res: Response) => {
+  res.set('Access-Control-Allow-Origin', '*')
   console.log(whereami, 'ping')
   res.json({
     pong: new Date().toISOString(),
@@ -23,11 +24,13 @@ router.post('/', (req: Request, res: Response) => {
 })
 
 router.put('/', (req: Request, res: Response) => {
+  res.set('Access-Control-Allow-Origin', '*')
   console.log(whereami, 'put', '/', req.body)
   res.json(todoService.updateEntry(req.body))
 })
 
 router.delete('/', (req: Request, res: Response) => {
+  res.set('Access-Control-Allow-Origin', '*')
   console.log(whereami, 'delete', '/', req.body)
   if (req.body && req.body.id) todoService.deleteEntry(req.body.id)
   res.json(req.body)
