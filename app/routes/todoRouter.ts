@@ -11,6 +11,7 @@ router.get('/ping', (req: Request, res: Response) => {
 })
 
 router.get('/', (req: Request, res: Response) => {
+  res.set('Access-Control-Allow-Origin', '*')
   console.log(whereami, 'get', '/')
   res.json(todoService.getEntries())
 })

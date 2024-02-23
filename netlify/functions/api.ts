@@ -19,22 +19,22 @@ const router = Router()
 // TODO Router
 app.use(FULL_TODO_URL, todoRouter)
 
-// router.get('/', (req: Request, res: Response) =>
-//   res.send(`
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   <meta charset="UTF-8">
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//   <title>node-express-netlify-api</title>
-// </head>
-// <body style="background: black; color: white;">
-// node-express-netlify-api
-// </body>
-// </html>
-// `)
-// )
-router.get('', (req: Request, res: Response) => res.json({ root: 999 }))
+// Not working in Netlify. Why?
+router.get('/', (req: Request, res: Response) =>
+  res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node-express-netlify-api</title>
+</head>
+<body style="background: black; color: white;">
+node-express-netlify-api
+</body>
+</html>
+`)
+)
 router.get(BASE_URL + '/ping', (req: Request, res: Response) =>
   res.json({
     pong: new Date().toISOString(),
