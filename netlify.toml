@@ -24,9 +24,3 @@
   from = "/*"
   status = 200
   to = "/index.html"
-
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "https://joseantanaper.github.io/es/playground/restapi"

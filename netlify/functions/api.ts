@@ -35,6 +35,7 @@ const allowedDomains = [
 //   })
 // )
 
+// It works!
 const corsOptions = {
   origin: '*',
   credentials: true,
