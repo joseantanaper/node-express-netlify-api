@@ -2,7 +2,10 @@
 import express, { Router, Request, Response } from 'express'
 import serverless from 'serverless-http'
 import dotenv from 'dotenv'
+
 import todoRouter from '@routes/todoRouter'
+import cors from 'cors'
+
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
@@ -12,6 +15,22 @@ const FULL_TODO_URL = BASE_URL + TODO_URL
 const app = express()
 
 app.use(express.json())
+const allowedDomains = ['http://localhost:5173']
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // bypass the requests with no origin (like curl requests, mobile apps, etc )
+      if (!origin) return callback(null, true)
+
+      if (allowedDomains.indexOf(origin) === -1) {
+        var msg = `This site ${origin} does not have an access. Only specific domains are allowed to access it.`
+        return callback(new Error(msg), false)
+      }
+      return callback(null, true)
+    },
+  })
+)
 
 // ROOT Router
 const router = Router()

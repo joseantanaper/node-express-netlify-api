@@ -1,5 +1,6 @@
-@baseUrl = http://localhost:3000
-@todoUrl = {{baseUrl}}/api/todo
+# @baseUrl = http://localhost:3000
+@baseUrl = https://coruscating-sable-0b4705.netlify.app
+@todoUrl = {{baseUrl}}/api/todos
 
 ###
 
