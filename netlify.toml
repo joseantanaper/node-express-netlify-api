@@ -27,6 +27,6 @@
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
+  for = "/api/todos/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
