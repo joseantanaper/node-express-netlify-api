@@ -15,7 +15,10 @@ const FULL_TODO_URL = BASE_URL + TODO_URL
 const app = express()
 
 app.use(express.json())
-const allowedDomains = ['http://localhost:5173']
+const allowedDomains = [
+  'http://localhost:5173',
+  'https://iridescent-tapioca-b1d2f4.netlify.app/',
+]
 
 app.use(
   cors({
